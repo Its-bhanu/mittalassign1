@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/blogs');
+      const res = await fetch('https://mittalassign1-backend.vercel.app/api/blogs');
       const data = await res.json();
       setBlogs(data);
     } catch {
@@ -44,7 +44,7 @@ const App = () => {
     if (newBlog.image) formData.append('image', newBlog.image);
 
     try {
-      const res = await fetch('http://localhost:5000/api/blogs', {
+      const res = await fetch('https://mittalassign1-backend.vercel.app/api/blogs', {
         method: 'POST',
         body: formData
       });
@@ -65,7 +65,7 @@ const App = () => {
 
   const handleDeleteBlog = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/blogs/${id}`, { method: 'DELETE' });
+      const res = await fetch(`https://mittalassign1-backend.vercel.app/api/blogs/${id}`, { method: 'DELETE' });
       if (res.ok) {
         setBlogs(blogs.filter(blog => blog._id !== id));
         setMessage({ text: 'Blog deleted successfully', type: 'success' });
